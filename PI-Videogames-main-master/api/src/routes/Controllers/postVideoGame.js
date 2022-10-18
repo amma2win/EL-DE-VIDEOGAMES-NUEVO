@@ -18,7 +18,7 @@ const postVideoGames = async(req, res) =>{
         image,
         released,
         rating,
-        platform,
+        platform
        
       });
 
