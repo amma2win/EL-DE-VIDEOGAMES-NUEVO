@@ -68,7 +68,8 @@ return (
         <div>
           
             <div>                    
-                  <select className="filtergenre" onClick={e => handleGenreFilter(e)} >
+                  <select className="filtergenre" onChange={e => handleGenreFilter(e)} >
+                    <option hidden value="genres">Generos</option>
                     {allGenres?.map((e,i) => {
                          
                          return(
@@ -80,11 +81,13 @@ return (
                 </div>
                 <div>  
                   <select className="acomodar"  onChange={e => handleSortvgames(e)} >
+                    <option hidden value="Orden">Orden</option>
                     <option value='asc'>A-Z</option>
                     <option value='desc'>Z-A</option>
                     <option value='rating'>Mejores Rating</option>
                   </select>
                   <select name="FILTROS" id="" onChange={e => handleFilterCreated(e)}>
+                    <option hidden value="Origen">Origen</option>
                     <option value="All">Todos los videogames</option>
                     <option value="created">Creados</option>
                     <option value="api">Existentes</option>

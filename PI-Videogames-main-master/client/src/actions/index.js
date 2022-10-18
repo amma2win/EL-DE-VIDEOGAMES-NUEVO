@@ -51,7 +51,7 @@ export function filterCreated(payload){
 }
 export function postVgames(payload){
     return async function (dispatch){
-        const response = await axios.post('http://localhost:3001/videogames',payload)
+        const response = await axios.post("http://localhost:3001/videogames" ,payload)
         return response;
     }
 }
