@@ -107,6 +107,11 @@ export default function rootReducer(state = initialState, action) {
           videogames: sortedArr,
         };
       }
+      case "GET_DETAILS":
+        return{
+          ...state,
+          videodetails: action.payload
+        }
     default:
       return state;
   }

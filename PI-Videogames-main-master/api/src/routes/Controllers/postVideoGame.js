@@ -6,7 +6,7 @@ const {Genre,Videogame} = require ('../../db');
 
 const postVideoGames = async(req, res) =>{
     // traigo data del body
-    const  { name, description,image,released, rating, platform, genres} = req.body
+    const  { name, description,image,released, rating, platforms, genres} = req.body
     try {
       
       /* if (!name || !description || !platform){
@@ -18,7 +18,7 @@ const postVideoGames = async(req, res) =>{
         image,
         released,
         rating,
-        platform
+        platforms
        
       });
 

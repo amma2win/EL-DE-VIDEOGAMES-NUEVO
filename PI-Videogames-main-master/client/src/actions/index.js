@@ -55,6 +55,19 @@ export function postVgames(payload){
         return response;
     }
 }
+export function getDetail(id) {
+    try{
+        return async function(dispatch) {
+            var json = await axios.get(`http://localhost:3001/videogame/${id}`)
+            return dispatch ({
+                type: "GET_DETAILS",
+                payload: json.data
+            })
+        }
+    } catch(error){
+        console.log(error)
+    }
+ }
 export function getNameVgames(name){
 
     return async function(dispatch){

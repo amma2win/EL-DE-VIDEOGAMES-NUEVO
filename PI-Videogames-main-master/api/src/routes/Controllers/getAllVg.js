@@ -13,7 +13,7 @@ const { apiKey } = process.env;
                 id: e.id,
                 name: e.name,
                 genres: e.genres.map(e=> e.name).join(', '),
-                img: e.background_image,
+                image: e.background_image,
                 description: e.description,
                 released: e.released,
                 rating: e.rating,
@@ -42,7 +42,7 @@ const { apiKey } = process.env;
          return totalVideos;
      };
 
-    const getById = async (id) => {
+ /*    const getById = async (id) => {
     try{
         const apiVideo = await axios( `https://api.rawg.io/api/games/${id}?key=${apiKey}`);
         const data = await apiVideo.data;
@@ -53,17 +53,17 @@ const { apiKey } = process.env;
             released: data.released,
             rating: data.rating,
             platforms: data.platforms.map((e) => e.platform.name).join(', '),
-            img: data.background_image,
-            genres: data.genres.map((e) => e.name)
+            image: data.background_image,
+            genres: data.genres.map((e)=> e.name).join(', ')
         }
         return dataVideo
 
     }catch(e){
         console.log(e)
     }
-    }
+    } */
 
-    const getPlatformApi =async (req,res) =>{
+   /*  const getPlatformApi =async (req,res) =>{
         try {
          const apiInfo= await axios.get(`https://api.rawg.io/api/platforms/lists/parents?key=${apiKey}`)
          const platApi = await apiInfo.data.results.map(p = p.name)
@@ -72,11 +72,10 @@ const { apiKey } = process.env;
          res.status(400).send(console.log(e))
      
      }
-     }
+     } */
  module.exports = {
                     getVideoDb,
                     getAllinfo,
                     getVideoApi,
-                    getById,
-                    getPlatformApi
+                 
                     }

@@ -4,38 +4,41 @@ import { useState, useEffect } from "react";
 import { getVideoGames, postVgames, getGenres, } from "../../actions";
 import { Link, useHistory } from "react-router-dom";
 import "./VideogameCreate.css";
-/*  function validateInput(input) {
+
+
+
+ function validateInput(input) {
      var errors = {};
      if(!input.name){
-         errors.name = 'Name is required';
+         errors.name = 'El nombre es requerido';
      } else if (input.name.length > 100 ){
-         errors.name = "Name is too long (Max = 100 characters)"
+         errors.name = "Nombre demasiado largo (Max = 100 caracteres)"
      }
      if(!input.description) {
-         errors.description = 'Description is required';
+         errors.description = 'Requiere Descripcion';
      } else if (input.description.length > 1500) {
-         errors.description = 'Description is too long. (Max = 1500 characters)'
+         errors.description = "Descripcion demasiado largo (Max = 100 caracteres)"
      }
      if(!input.rating){
-         errors.rating = 'Rating is required'
+         errors.rating = 'Requiere Rating'
      } else if (input.rating > 5 || input.rating < 0) {
-         errors.rating = "Rating must range between 0 to 5"
+         errors.rating = "Rating debe ser 1 - 5"
      }
      if(!input.released) {
-         errors.released = "Date of release is required"
+         errors.released = "Fecha de lanzamiento requerida"
      }else if(input.released.length < 10) {
-         errors.released = "Date of release is to long"
+         errors.released = "Fecha de lanzamiento demasiado larga"
      }if(!input.image) {
-         errors.image = "Image URL is required"
+         errors.image = "Requiere una imagen URL"
      } if(!input.genres[0]){
-         errors.genres = "Minimun one Genre is required "
+         errors.genres = "Al menos un genero es requerido"
      } if (!input.platforms[0]){
-         errors.platforms = 'Minimun one Platform is required'
+         errors.platforms = 'Al menos una plataforma es requerida'
      }
     
      return errors;
-}
-*/
+};
+
 export default function VideogameCreate() {
     const dispatch = useDispatch()
     const allGenres = useSelector((state) => state.genres)
@@ -48,7 +51,7 @@ export default function VideogameCreate() {
         released: '',
         rating: '',
         image: '',
-        platform: "",
+        platforms: "",
         genres: []
     })
     function handleChange(e) {
@@ -56,10 +59,10 @@ export default function VideogameCreate() {
             ...input,
             [e.target.name]: e.target.value
         })
-        setErrors({
+        setErrors(validateInput({
             ...input,
             [e.target.name]: e.target.value
-        });
+        }));
         console.log(input)
     }
     function handleSelect(e) {
@@ -67,7 +70,7 @@ export default function VideogameCreate() {
             ...input,
             genres: [...input[e.target.name], e.target.value]
         })
-        setErrors(({
+        setErrors(validateInput({
             ...input,
             [e.target.name]: e.target.value
         }));
@@ -79,11 +82,13 @@ export default function VideogameCreate() {
         } else if (allGames.find((e) => e.name.toLowerCase() === input.name.toLowerCase())) {
             alert(`El nombre ${input.name} ya existe, Porfavor elige otro`)
         } else if (!input.description) {
-            alert("Your game need description")
+            alert("El juego necesita una descripcion")
         } else if (!input.rating || input.rating < 1 || input.rating > 5) {
             alert("Porfavor ingresa un rating correcto 1 ~ 5")
-        } else if (!input.genres) {
-            alert("Please insert at least one genre")
+        }else if(!input.platforms){
+            alert("Porfavor Ingresa una plataforma.")
+        }else if (!input.genres) {
+            alert("Porfavor ingresá un genero")
         } else if (input.genres.length === 0) {
             alert("Ingresar un genero")
         } else {
@@ -95,7 +100,7 @@ export default function VideogameCreate() {
                 released: '',
                 rating: '',
                 image: '',
-                platform: "",
+                platforms: "",
                 genres: []
             })
             history.push('/home')
@@ -138,8 +143,8 @@ export default function VideogameCreate() {
                     <textarea className={errors.description && 'danger'} type='text' value={input.description} name='description' placeholder="About game..." onChange={e => handleChange(e)} />
                     <label>Plataformas: </label>
                     <input type="text"
-                        value={input.platform}
-                        name="platform"
+                        value={input.platforms}
+                        name="platforms"
                         onChange={(e) => handleChange(e)} />
                     <label>Generos: </label>
                     <select className={errors.genres && 'danger'} name='genres' onChange={(e) => handleSelect(e)}>

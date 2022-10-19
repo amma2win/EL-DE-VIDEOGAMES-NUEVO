@@ -20,10 +20,10 @@ module.exports = (sequelize) => {
       allowNull:false,
     },
     image:{
-      type:DataTypes.STRING
+      type:DataTypes.TEXT()
     },
     released: {
-      type: DataTypes.TEXT()
+      type: DataTypes.STRING
     },
  
     rating: {
@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
         max:5
       }
     },
-      platform: {
+      platforms: {
       type: DataTypes.STRING,
       allowNull: false
     },

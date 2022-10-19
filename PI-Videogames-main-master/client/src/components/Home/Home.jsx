@@ -70,6 +70,7 @@ return (
             <div>                    
                   <select className="filtergenre" onChange={e => handleGenreFilter(e)} >
                     <option hidden value="genres">Generos</option>
+                    
                     {allGenres?.map((e,i) => {
                          
                          return(
@@ -105,7 +106,7 @@ return (
             return (
             <div key= {e.id} >
                 <Link to ={"/home/" + e.id}>
-            <Card  name ={e.name} image={e.image ? e.image : e.img} released={e.released }rating={e.rating} platform={e.platforms} genre={e.genres}/>
+            <Card  name ={e.name} image={e.image ? e.image : e.img} released={e.released }rating={e.rating} platforms={e.platforms} genre={e.genres}/>
             </Link>
             </div>
           );
