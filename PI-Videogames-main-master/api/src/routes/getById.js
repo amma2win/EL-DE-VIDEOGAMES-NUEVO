@@ -5,6 +5,7 @@ const { apiKey } = process.env;
 const axios = require ('axios');
 
 router.get('/:id', async (req,res) => {
+ try{
     const {id} = req.params
     if(!id.includes('-')) {
         const gameDetail = await axios.get(`https://api.rawg.io/api/games/${id}?key=${apiKey}`)
@@ -37,6 +38,10 @@ router.get('/:id', async (req,res) => {
         
         res.send(newArr)
     }
+
+ }catch(e){
+    console.log(e)
+ }
 })
 
 /* router.delete('/:id', async(req, res) => {
