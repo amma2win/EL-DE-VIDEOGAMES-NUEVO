@@ -31,7 +31,7 @@ useEffect (()=>{  //para poder cargar previamente dat
 },[dispatch])
 
 function handleClick(e){
-    e.preventDefault();
+  window.location.reload() // que vuelva a su punto de origen la
     dispatch(getVideoGames());
 }
 
@@ -106,7 +106,7 @@ return (
             return (
             <div key= {e.id} >
                 <Link to ={"/home/" + e.id}>
-            <Card  name ={e.name} image={e.image ? e.image : e.img} released={e.released }rating={e.rating} platforms={e.platforms} genre={e.genres}/>
+            <Card  name ={e.name} image={e.image} released={e.released }rating={e.rating} platforms={e.platforms} genres={e.genres ? e.genres : e.genre}/>
             </Link>
             </div>
           );
