@@ -21,19 +21,31 @@ const { apiKey } = process.env;
                 /* createdAtDb: e.createdAtDb */
             };
         });
-        return infoVideo;// aca devuelvo todo lo que le solicite arriba a la api
+        return infoVideo; // aca devuelvo todo lo que le solicite arriba a la api
     };
     const getVideoDb = async () =>{
-        return await Videogame.findAll({
+        let infoDb = await Videogame.findAll({
             include: {
                 model: Genre,
-                attributes: ["name"],
-                through : {
+                attributes:["name"],
+                through: {
                     attributes: [],
-                }
-            }
-        })
-    };
+                },
+            },
+        });
+        infoDb = infoDb.map(({ createdAtDb, id, name, released, rating, platforms, genres, image }) => ({ 
+            createdAtDb,
+            id,
+            name,
+            released,
+            rating,
+            platforms,
+            image,
+            genres: genres.map((e) => e.name),
+            
+          }));
+          return infoDb
+      };
     
     const getAllinfo = async () => {
         const videoApi = await getVideoApi();

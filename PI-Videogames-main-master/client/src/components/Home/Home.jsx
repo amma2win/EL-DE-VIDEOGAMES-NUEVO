@@ -5,8 +5,8 @@ import { getVideoGames,filterByGenres, getGenres, sortVgames,filterCreated } fro
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
-import SearchBar from "../SearchBar/SearchBar";/* 
-import VideogameCreate from "../VgCreate/VideogameCreate"; */
+import SearchBar from "../SearchBar/SearchBar";
+import s from "./../Home/Home.module.css";
 
 
 export default function Home (){
@@ -54,20 +54,23 @@ function handleFilterCreated(e){
 }
 
 return (
-    <div>
-        <div>
+    <div className={s.container}>
+      <div className={s.title}>
+      <h1>Videogames APP</h1>
+      </div>
+        <div className={s.creaVg}>
              <Link to= '/videogames'>
         <button>Crear Videogame</button>
         </Link>
-        </div>
+        
        
-        <h1>Videogames APP</h1>
+        
         <button className="boton1" onClick={e => {handleClick(e)}}>
             Volver a cargar todos los Videogames
         </button>
         <div>
           
-            <div>                    
+            <div className={s.filters}>                    
                   <select className="filtergenre" onChange={e => handleGenreFilter(e)} >
                     <option hidden value="genres">Generos</option>
                     
@@ -94,17 +97,40 @@ return (
                     <option value="api">Existentes</option>
                   </select>
                 </div> 
+                </div>
+                <div className={s.pagination}>
             <Paginado
             videogamesPerPage={videogamesPerPage}
             allVideogames= {allVideogames.length}
             paginado = {paginado}
             />
-            <SearchBar/>
-           
+            </div>
+            <div className={s.searchBar}>      
+                <SearchBar/>
+            </div>
+       {
+            !allVideogames.length? 
+            <div >
+              <div class="center-body">
+    <div class="loader-triangle-3">
+        <svg id="triangle" width="50px" height="50px" viewbox="-3 -4 39 39">
+            <polygon fill="transparent" stroke="#ffeb3b" stroke-width="2" points="16,0 32,32 0,32">
+            </polygon>
+        </svg>
+    </div>
+</div>
+                Loading
+            </div>:null
+            }
+        
+
+
+
+           <div className={s.cards}>
         {
           currentVideogame?.map((e) => {
             return (
-            <div key= {e.id} >
+            <div className= {s.cardsjuegos} key= {e.id} >,
                 <Link to ={"/home/" + e.id}>
             <Card  name ={e.name} image={e.image} released={e.released }rating={e.rating} platforms={e.platforms} genres={e.genres ? e.genres : e.genre}/>
             </Link>
@@ -112,6 +138,7 @@ return (
           );
         })
         }
+        </div>  
         </div>
     </div>
 )

@@ -24,7 +24,7 @@ return (
            myVideogames.length >0 ?
             <div>
                 <div>
-                   <p>Name:{myVideogames[0].name}</p> 
+                   <p>Nombre:{myVideogames[0].name}</p> 
                     <p>Plataformas:{myVideogames[0].platforms }</p> 
                     <p>Descripcion {myVideogames[0].description}</p>
                     {/* <h4>Generos: {myVideogames[0].genres.map(e => e.name +(' '))}</h4> */}

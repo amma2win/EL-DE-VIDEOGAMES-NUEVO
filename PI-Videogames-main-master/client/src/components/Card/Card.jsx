@@ -1,38 +1,26 @@
 import React from "react";
+import styles from "./Card.module.css"
 
-import './Card.css'
-export default function Card({name,image,genres,rating,platforms}){
+export default function Card({name, image, genres, rating}){
     return (
-    <div className="bigcontainer">
-        {
-           
-            <header>{name}</header> 
-            
-        }
-        {
-            image ?
-            // <img src={image} alt="Not Found" width="350px" height="200px"/> :
-            <img src={image} alt="Not Found"/> :
-            <img src='https://cdn.pixabay.com/photo/2021/05/06/14/51/gamepad-6233583_960_720.png' alt="Not Found" width="350px" height="200px"/>
-        }   
-        <div className="galeria">
-            <div className="genreCard">
-        {
+        <div className={styles.cardCont}>
+            <div className={styles.img}>
+                <img src={image} alt="" width="200px" height="120px"/>
+            </div>
+            <div className={styles.name}>
+                <h3>{name}</h3>
+            </div>
+            <div className={styles.genres}>
+            {
             genres.length ?
-            <p>{ genres[0].name ?
+            <p>{ genres.name ?
             genres.map(genre => genre.name).join(',') :
-            genres}</p> : <p>No genres</p>
+            genres.join(',')}</p> : <p>No tiene genero</p>
         }  
-        {
-           <p>{platforms}</p> 
-          
-        }  
-        {<h3>{`★ ${rating}`}</h3>}
+            </div>
+            <div className={styles.rating}>
+                <h4>⭐ {rating}</h4>
+            </div>
         </div>
-       
-                
-                </div>  
-    </div>
-
-   )
+    )
 }

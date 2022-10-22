@@ -33,9 +33,9 @@ export default function rootReducer(state = initialState, action) {
       const filterVg =
         action.payload === "All"
           ? allVgames
-          : allVgames.filter((v) => v.genres.includes(action.payload));
-        /*   console.log(filterVg)
-          console.log(allVgames) */
+          : allVgames.filter((v) => v.genres ? v.genres.includes(action.payload) : v.genres.find(i => i.name === action.payload)) 
+        
+     
       if (filterVg.length === 0) {
         alert(`No existe el video juego con ese genero ${action.payload}`);
         return state;
