@@ -121,7 +121,7 @@ export default function VideogameCreate() {
             <div className="container1">
                 <div className="container2">
                     <Link to='/home'>
-                        <p>Return</p>
+                        <p>Volver</p>
                     </Link>
                 </div>
                 <div className="container2">

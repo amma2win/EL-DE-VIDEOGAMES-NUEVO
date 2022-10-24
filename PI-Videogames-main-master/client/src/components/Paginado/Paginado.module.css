@@ -3,9 +3,10 @@
     display: flex;
    list-style: none;
    justify-content: center;
-   
-
- 
+   cursor: pointer;
+   align-items: center;
+ margin:0px;
+ padding: 0%;
 }
 
 .paginado li{
@@ -17,7 +18,6 @@
     
 
 }
-
 
 *{
 margin:0px;

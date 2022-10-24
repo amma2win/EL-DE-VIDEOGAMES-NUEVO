@@ -9,9 +9,9 @@ const postVideoGames = async(req, res) =>{
     const  { name, description,image,released, rating, platforms, genres} = req.body
     try {
       
-      /* if (!name || !description || !platform){
+if (!name || !description || !platforms){ 
         res.status(400).send('Faltan datos en el body !')
-      } */
+      } 
       const newVideogame = await Videogame.create({
         name,
         description,

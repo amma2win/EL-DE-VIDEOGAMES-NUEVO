@@ -10,12 +10,13 @@ export default function Card({name, image, genres, rating}){
             <div className={styles.name}>
                 <h3>{name}</h3>
             </div>
-            <div className={styles.genres}>
+            <div className={styles.genres}>|
             {
             genres.length ?
-            <p>{ genres.name ?
-            genres.map(genre => genre.name).join(',') :
-            genres.join(',')}</p> : <p>No tiene genero</p>
+            <p>{ genres.name ?         
+            genres.map(g => g.name).join('|'): 
+            genres + '|'}</p> : <p>No genres</p>
+           
         }  
             </div>
             <div className={styles.rating}>

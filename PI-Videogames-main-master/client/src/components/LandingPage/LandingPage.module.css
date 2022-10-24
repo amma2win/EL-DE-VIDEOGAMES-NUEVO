@@ -2,11 +2,15 @@
     background-color: #4646AA;
     background-image: url("../../LandingPageimage.jpg");
     background-size:90%;
-    background-repeat: no-repeat;
+    background-repeat:round;
     width: 100vw;
     height: 100vh;
     font-weight: bold;
     font-style: oblique;
+    justify-content: center;
+    align-content: center;
+    
+    
     
 }
 

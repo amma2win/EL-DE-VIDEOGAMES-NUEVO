@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDetail } from '../../actions/index';
-
+import s from "../Detail/Detail.module.css"
 
 export default function Detail (props) {
 console.log(props)
@@ -23,15 +23,15 @@ return (
             
            myVideogames.length >0 ?
             <div>
-                <div>
-                   <p>Nombre:{myVideogames[0].name}</p> 
-                    <p>Plataformas:{myVideogames[0].platforms }</p> 
-                    <p>Descripcion {myVideogames[0].description}</p>
+                <div className={s.divsaso}>
+                   <p className={s.name}>Nombre:{myVideogames[0].name}</p> 
+                    <p className={s.plats}>Plataformas:{myVideogames[0].platforms }</p> 
+                    <p className={s.descri}>Descripcion {myVideogames[0].description}</p>
                     {/* <h4>Generos: {myVideogames[0].genres.map(e => e.name +(' '))}</h4> */}
-                    <h4>Generos: {!myVideogames[0].createdAtDb ? myVideogames[0].genres + ' ' : myVideogames[0].genres.map(e => e.name +(' ')).join(', ')}</h4> 
-                    <small>Fecha de lanzamiento {myVideogames[0].released}</small>
-                    <img src={myVideogames[0].image} alt="" width="800px" height="600px"/>
-                    <small>Rating {myVideogames[0].rating}</small>
+                    <h4 className={s.genres}>Generos: {!myVideogames[0].createdAtDb ? myVideogames[0].genres + ' ' : myVideogames[0].genres.map(e => e.name +(' ')).join(', ')}</h4> 
+                    <small className={s.releas}>Fecha de lanzamiento {myVideogames[0].released}</small>
+                    <img className={s.imagen} src={myVideogames[0].image} alt="" width="800px" height="600px"/>
+                    <small className={s.rating}>Rating {myVideogames[0].rating}</small>
                 </div>
 
                 {/* <h1>soy {myVideogames[0].name? myVideogames[0].name : myVideogames[0].name}</h1> */}
