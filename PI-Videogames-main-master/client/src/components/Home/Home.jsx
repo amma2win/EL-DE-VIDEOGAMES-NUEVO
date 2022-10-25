@@ -7,7 +7,7 @@ import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import SearchBar from "../SearchBar/SearchBar";
 import s from "./../Home/Home.module.css";
-import '../Home/Home.css'
+/* import '../Home/Home.css' */
 import imagen from "../../imagen/folder_mario_games_14558.png"
 export default function Home (){
 
@@ -57,10 +57,14 @@ return (
     <div className={s.container}>
       
         <div className={s.logo}>
-          <img src={imagen}  alt="logo not found" />
-          <h1 className={s.titleVideogames}>Videogames APP</h1>
+          <img src={imagen}  alt="logo not found" /> 
+          </div>
+          <div className={s.titleVideogames}>
+            <h1>Videogames APP</h1>
+            </div>
+          
         
-      </div>
+     
      
         <div className={s.creaVg}>
              <Link to= '/videogames'>
@@ -88,7 +92,7 @@ return (
                   </select>
                 </div>
                 <div className={s.acomodarFiltros}>  
-                  <select className="acomodar"  onChange={e => handleSortvgames(e)} >
+                  <select className={s.orden}  onChange={e => handleSortvgames(e)} >
                     <option hidden value="Orden">Orden</option>
                     <option value='asc'>A-Z</option>
                     <option value='desc'>Z-A</option>
@@ -116,12 +120,7 @@ return (
             !allVideogames.length? 
             <div >
               <div className="center-body">
-    <div className="loader-triangle-3">
-        <svg id="triangle" width="50px" height="50px" viewBox="-3 -4 39 39">
-            <polygon fill="transparent" stroke="#ffeb3b" strokeWidth="2" points="16,0 32,32 0,32">
-            </polygon>
-        </svg>
-    </div>
+              <a href="http://gifgifs.com/" title="http://gifgifs.com"><img src="http://gifgifs.com//animations/creatures-cartoons/super-heroes/Batman_symbol_2.gif" border="0" alt="http://gifgifs.com" /></a><br/><a href="http://gifgifs.com/"></a>
 </div>
                 Loading
             </div>:null

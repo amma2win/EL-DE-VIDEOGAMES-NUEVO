@@ -81,6 +81,10 @@ export default function VideogameCreate() {
             alert("El nombre es requerido")
         } else if (allGames.find((e) => e.name.toLowerCase() === input.name.toLowerCase())) {
             alert(`El nombre ${input.name} ya existe, Porfavor elige otro`)
+        }else if(!input.released){
+            alert(`El juego necesita una fecha de lanzamiento`)
+        }else if(!input.image){
+            alert('El juego necesita una imagen')
         } else if (!input.description) {
             alert("El juego necesita una descripcion")
         } else if (!input.rating || input.rating < 1 || input.rating > 5) {
@@ -131,20 +135,21 @@ export default function VideogameCreate() {
             <div className="containerForm">
                 <form id="form" onSubmit={e => handleSubmit(e)}>
                     <label>Nombre:</label>
-                    <input required="name" className={errors.name && 'danger'} type='text' value={input.name} name='name' placeholder="Name" onChange={e => handleChange(e)} />
+                    <input required="name" className={errors.name && 'danger'} type='text' value={input.name} name='name' placeholder="Nombre" onChange={e => handleChange(e)} />
                     <label>Rating: </label>
-                    <input className={errors.rating && 'danger'} type='text' value={input.rating} name='rating' placeholder="From 0 to 5" onChange={e => handleChange(e)} />
+                    <input className={errors.rating && 'danger'} type='text' value={input.rating} name='rating' placeholder="De 0 a 5" onChange={e => handleChange(e)} />
                     <label>Imagen URL:</label>
                     <input className={errors.image && 'danger'} type='text' value={input.image} name='image' placeholder="URL" onChange={e => handleChange(e)} />
                     <label>Fecha de lanzamiento: </label>
                     <input className={errors.released && 'danger'} type='date' value={input.released} name='released' placeholder="
-                        When it was created" onChange={e => handleChange(e)} />
+                        Fecha de lanzamiento" onChange={e => handleChange(e)} />
                     <label>Descripcion: </label>
-                    <textarea className={errors.description && 'danger'} type='text' value={input.description} name='description' placeholder="About game..." onChange={e => handleChange(e)} />
+                    <textarea className={errors.description && 'danger'} type='text' value={input.description} name='description' placeholder="Acerca del juego..." onChange={e => handleChange(e)} />
                     <label>Plataformas: </label>
                     <input type="text"
                         value={input.platforms}
                         name="platforms"
+                        placeholder="Plataformas"
                         onChange={(e) => handleChange(e)} />
                     <label>Generos: </label>
                     <select className={errors.genres && 'danger'} name='genres' onChange={(e) => handleSelect(e)}>

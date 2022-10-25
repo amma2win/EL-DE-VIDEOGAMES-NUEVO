@@ -79,22 +79,58 @@
 }
 
 .acomodarFiltros{
-    margin-left:10px;
-     margin-bottom: 5px;
-}
-
-.title{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+   list-style: none;
+   justify-content: center;
    
+  
+}
+.orden{
+    margin-left:10px;
+    margin-bottom: 5px;
+    padding:1px;
+   
+    cursor: pointer;
+    background: #799be6;
+    color: white;
+    transition:  .5s ease;
+    border-radius: 10px;
+
+}
+.orden:hover{
+    background-color: lightblue;
+    border: 2px solid #799be6; 
+    box-shadow: 0 0 10px 0 #799be6 inset,
+                0 0 10px 4px #799be6;
+    border-radius: 10px
 }
 
 .FILTROS{
      margin-left:10px;
      margin-bottom: 5px;
+     padding:1px;
+   
+     cursor: pointer;
+     background: #799be6;
+     color: white;
+     transition:  .5s ease;
+     border-radius: 10px;
+
+}
+.FILTROS:hover{
+   background-color: lightblue;
+    border: 2px solid #799be6; 
+    box-shadow: 0 0 10px 0 #799be6 inset,
+                0 0 10px 4px #799be6;
+    border-radius: 10px
 
 }
 .boton1{
     padding:12px;
-    width: 190px;
+   
     cursor: pointer;
     background: #799be6;
     color: white;
@@ -108,33 +144,14 @@
                 0 0 10px 4px #799be6;
     border-radius: 10px;  
 }
-.filters option{
-    text-align: center;
-    display: block;
-	/* width: 190px; */
-	cursor: pointer;
-  	padding: 12px;
-  	height: auto;
-  	outline: 0; 
-  	border: 0;
-	border-radius: 0;
-    background: #fff;
-	color: #799be6;;
-    font-weight: bolder;
-	font-size: 18px;
-	color: #799be6;;
-    border-radius: 12px;
-    position: relative;
-    transition: 0.6s;
-    padding: auto;
-}
+
 .filters{
-   padding:6px;
-   margin-left: 42%;
+     padding:6px;
+    margin-left: 42%;
     width: 190px; 
     cursor: pointer;
     background: #799be6;
-    color: white;
+    
     transition:  .5s ease;
     border-radius: 10px;
     /* align-items: center;
@@ -144,6 +161,32 @@
    
   
 }
+.filtroGenero{
+    text-align: center;
+    display: block;
+	width: 190px;
+	cursor: pointer;
+  	padding: 1px;
+  	height: auto;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+    background: #fff;
+	color: #799be6;;
+    font-weight: bolder;
+	font-size: 25px;
+	color: #799be6;;
+    border-radius: 12px;
+    position: relative;
+    transition: 0.6s;
+}
+.filtroGenero:hover{
+    background: transparent;
+    border: 2px solid #799be6; 
+    box-shadow: 0 0 10px 0 #799be6 inset,
+                0 0 10px 4px #799be6;
+    border-radius: 10px;  
+}
 .filters:hover{
     background: transparent;
     border: 2px solid #799be6; 
@@ -151,7 +194,7 @@
                 0 0 10px 4px #799be6;
     border-radius: 10px;  
 }
-.filters select{
+.filters-select{
     appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -159,7 +202,14 @@
 .filters select::-ms-expand{
     display: none;
 }
+.select{
+    background: transparent;
+    border: 2px solid #799be6; 
+    box-shadow: 0 0 10px 0 #799be6 inset,
+                0 0 10px 4px #799be6;
+    border-radius: 10px;
 
+}
 .searchBar{
     margin-bottom: 40px;
 }
@@ -169,5 +219,11 @@
     justify-items: center;
    padding: 5px 30px 5px 30px;
    align-items: center;
+   font-size:x-large;
 }
+.logo-h1{
+    font-size:large;
+}
+
+
 
